@@ -33,13 +33,13 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(UserVO user, HttpSession session) {
-		logger.info(user.toString());
 		String username = user.getUsername();
 		UserVO u = userdao.getUser(username);
-		//logger.info(u.toString());
-		/*
-		 * if(u.getPassword().equals(user.getPassword())) { return "success"; }
-		 */
+		
+		if(u.getPassword().equals(user.getPassword())) {
+			session.setAttribute("loginUser", u);
+			return "success"; 
+		}
 		
 		return "fail";
 	}
@@ -49,7 +49,38 @@ public class UserController {
 		logger.info(user.toString());
 		userdao.insertUser(user);
 		
-		return "redirect:/";
+		return "redirect:/user/login";
+	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String joinForm() {
+		return "user/join";
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.removeAttribute("loginUser");
+		
+		return "redirect:/user/login";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/checkUsername", method = RequestMethod.GET)
+	public String checkUsername(String username) {
+		logger.info(username);
+		String str="";
+		
+		UserVO u = userdao.getUser(username);
+		
+		if(u == null) {
+			logger.info("success");
+			str = "success";
+		}else {
+			logger.info("fail");
+			str = "fail";
+		}
+		
+		return str;
 	}
 	
 	

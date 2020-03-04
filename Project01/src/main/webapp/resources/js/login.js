@@ -1,34 +1,10 @@
 $(document).ready(function(){
-	$('#joinForm').hide();
 	
 	$('#join').on('click',function(){
-		$('#loginForm').fadeOut(1000,function(){
-			$('#joinForm').fadeIn(1000);
-		});
+		location.href="join";
 	});
 	
-	$('#backBt').on('click',function(){
-		$('#joinForm').fadeOut(1000,function(){
-			$('#loginForm').fadeIn(1000);
-		});
-	})
-	
-	$('#inputUserName').focusout(function(){
-		//id중복
-	})
-	
-	$('#confirmPw').popover();
-	
-	$('#confirmPw').on('keyup',function(){
-		var pw1 = $('#inputPw').val();
-		var pw2 = $('#confirmPw').val();
-		if(pw1 === pw2){
-			$('#confirmPw').popover('hide');
-		}else{
-			$('#confirmPw').popover('show');
-		}
-	})
-	
+		
 	$('#loginBt').on('click',function(){
 		var username = $('#loginUsername').val();
 		var password = $('#loginPassword').val();
@@ -41,6 +17,7 @@ $(document).ready(function(){
 			},
 			success : function(str){
 				if(str === "success"){
+					alert("success");
 					
 					location.href = "../"
 				}

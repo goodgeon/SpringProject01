@@ -19,12 +19,8 @@ public class UserDAO {
 	public UserVO getUser(String username) {
 		UserMapper mapper = session.getMapper(UserMapper.class);
 		
-		System.out.println(username.toString());
-		
 		UserVO user;
 		user = mapper.getUser(username);
-		
-		System.out.println(user.toString());
 		return user;
 	}
 }

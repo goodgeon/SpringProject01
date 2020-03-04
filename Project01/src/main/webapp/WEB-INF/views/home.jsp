@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -42,28 +43,32 @@
     Header
   ============================-->
   <header id="header">
-    <div class="container">
+    <div class="container-fluid" style = "text-align : center;">
 
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
         <a href="#intro" class="scrollto"><img src="resources/img/logo.png" alt="" title=""></a>
       </div>
+      
+      <div class = "pull-right loginUserInfo">
+      	<c:if test="${sessionScope.loginUser != null }">
+      		${sessionScope.loginUser.username}님 환영합니다
+      	</c:if>
+      </div>
 
-      <nav id="nav-menu-container">
+      <nav id="nav-menu-container" style = "display : inline-block;">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#speakers">Speakers</a></li>
-          <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#venue">Venue</a></li>
-          <li><a href="#hotels">Hotels</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#sponsors">Sponsors</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>
+          <li class="menu-active"><a href="/myapp">Home</a></li>
+          <li><a href="#about">전체 리뷰 목록</a></li>
+          <li><a href="#speakers">내 리뷰 목록</a></li>
+          <li><a href="#sponsors">개인정보수정</a></li>
+          <li><a href="user/logout">로그아웃</a></li>
+          <!-- <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li> -->
         </ul>
       </nav><!-- #nav-menu-container -->
+      
+      
     </div>
   </header><!-- #header -->
 
@@ -71,21 +76,46 @@
     Intro Section
   ============================-->
   <section id="intro">
-    <div class="intro-container wow fadeIn">
-      <h1 class="mb-4 pb-0">The Annual<br><span>Marketing</span> Conference</h1>
-      <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
-      <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
-        data-autoplay="true"></a>
-      <a href="#about" class="about-btn scrollto">About The Event</a>
+    <div class="intro-container wow fadeInUp">
+    <form method="GET" action="movie/search" style = "width : 50%;">
+          <div class="form-row justify-content-center searchForm">
+            <div class="col-md-11">
+              <input type="text" class="form-control" placeholder="검색어를 입력해 주세요" name = "title" style = "height : 60px;">
+            </div>
+            <div class="col-md-1">
+              <button type="submit" style = "height : 60px;">Search</button>
+            </div>
+          </div>
+    </form>
     </div>
   </section>
+  <section id="subscribe">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h2>Newsletter</h2>
+          <p>Rerum numquam illum recusandae quia mollitia consequatur.</p>
+        </div>
 
+        <form method="POST" action="#">
+          <div class="form-row justify-content-center">
+            <div class="col-auto">
+              <input type="text" class="form-control" placeholder="Enter your Email">
+            </div>
+            <div class="col-auto">
+              <button type="submit">Subscribe</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </section>
+<!--
   <main id="main">
 
     <!--==========================
       About Section
     ============================-->
-    <section id="about">
+     <section id="about">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
@@ -104,12 +134,12 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!--==========================
       Speakers Section
     ============================-->
-    <section id="speakers" class="wow fadeInUp">
+   <!--  <section id="speakers" class="wow fadeInUp">
       <div class="container">
         <div class="section-header">
           <h2>Event Speakers</h2>
@@ -212,9 +242,9 @@
 
     </section>
 
-    <!--==========================
+    ==========================
       Schedule Section
-    ============================-->
+    ============================
     <section id="schedule" class="section-with-bg">
       <div class="container wow fadeInUp">
         <div class="section-header">
@@ -239,7 +269,7 @@
 
         <div class="tab-content row justify-content-center">
 
-          <!-- Schdule Day 1 -->
+          Schdule Day 1
           <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
 
             <div class="row schedule-item">
@@ -317,9 +347,9 @@
             </div>
 
           </div>
-          <!-- End Schdule Day 1 -->
+          End Schdule Day 1
 
-          <!-- Schdule Day 2 -->
+          Schdule Day 2
           <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
 
             <div class="row schedule-item">
@@ -389,9 +419,9 @@
             </div>
 
           </div>
-          <!-- End Schdule Day 2 -->
+          End Schdule Day 2
 
-          <!-- Schdule Day 3 -->
+          Schdule Day 3
           <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
 
             <div class="row schedule-item">
@@ -461,7 +491,7 @@
             </div>
 
           </div>
-          <!-- End Schdule Day 2 -->
+          End Schdule Day 2
 
         </div>
 
@@ -469,9 +499,9 @@
 
     </section>
 
-    <!--==========================
+    ==========================
       Venue Section
-    ============================-->
+    ============================
     <section id="venue" class="wow fadeInUp">
 
       <div class="container-fluid">
@@ -570,9 +600,9 @@
 
     </section>
 
-    <!--==========================
+    ==========================
       Hotels Section
-    ============================-->
+    ============================
     <section id="hotels" class="section-with-bg wow fadeInUp">
 
       <div class="container">
@@ -638,9 +668,9 @@
 
     </section>
 
-    <!--==========================
+    ==========================
       Gallery Section
-    ============================-->
+    ============================
     <section id="gallery" class="wow fadeInUp">
 
       <div class="container">
@@ -663,9 +693,9 @@
 
     </section>
 
-    <!--==========================
+    ==========================
       Sponsors Section
-    ============================-->
+    ============================
     <section id="sponsors" class="section-with-bg wow fadeInUp">
 
       <div class="container">
@@ -729,9 +759,9 @@
 
     </section>
 
-    <!--==========================
+    ==========================
       F.A.Q Section
-    ============================-->
+    ============================
     <section id="faq" class="wow fadeInUp">
 
       <div class="container">
@@ -806,9 +836,9 @@
 
     </section>
 
-    <!--==========================
+    ==========================
       Subscribe Section
-    ============================-->
+    ============================
     <section id="subscribe">
       <div class="container wow fadeInUp">
         <div class="section-header">
@@ -830,9 +860,9 @@
       </div>
     </section>
 
-    <!--==========================
+    ==========================
       Buy Ticket Section
-    ============================-->
+    ============================
     <section id="buy-tickets" class="section-with-bg wow fadeInUp">
       <div class="container">
 
@@ -884,7 +914,7 @@
               </div>
             </div>
           </div>
-          <!-- Pro Tier -->
+          Pro Tier
           <div class="col-lg-4">
             <div class="card">
               <div class="card-body">
@@ -911,7 +941,7 @@
 
       </div>
 
-      <!-- Modal Order Form -->
+      Modal Order Form
       <div id="buy-ticket-modal" class="modal fade">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -942,15 +972,15 @@
                 </div>
               </form>
             </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+          </div>/.modal-content
+        </div>/.modal-dialog
+      </div>/.modal
 
     </section>
 
-    <!--==========================
+    ==========================
       Contact Section
-    ============================-->
+    ============================
     <section id="contact" class="section-bg wow fadeInUp">
 
       <div class="container">
@@ -1015,9 +1045,9 @@
         </div>
 
       </div>
-    </section><!-- #contact -->
+    </section>#contact
 
-  </main>
+  </main> -->
 
 
   <!--==========================
@@ -1113,6 +1143,7 @@
 
   <!-- Template Main Javascript File -->
   <script src="resources/js/main.js"></script>
+  <script src="resources/js/movie.js"></script>
 </body>
 
 </html>

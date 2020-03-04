@@ -1,4 +1,38 @@
+.btn {
+  font-size: 15px;
+  border-radius: 50px;
+  padding: 10px 40px;
+  transition: all 0.2s;
+  background-color: #f82249;
+  border: 0;
+  color: #fff;
+}
 
+.btn:disabled{
+	background-color : gray;
+}
+.btn:hover:disabled{
+	background-color : gray;
+}
+
+.btn:hover {
+  background-color: #e0072f;
+}
+
+
+.btn {
+  font-size: 15px;
+  border-radius: 50px;
+  padding: 10px 40px;
+  transition: all 0.2s;
+  background-color: #f82249;
+  border: 0;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #e0072f;
+}
 
 
 

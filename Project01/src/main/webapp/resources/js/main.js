@@ -1,4 +1,5 @@
 jQuery(document).ready(function( $ ) {
+	
 
   // Back to top button
   $(window).scroll(function() {
@@ -18,7 +19,7 @@ jQuery(document).ready(function( $ ) {
     if ($(this).scrollTop() > 100) {
       $('#header').addClass('header-scrolled');
     } else {
-      $('#header').removeClass('header-scrolled');
+      //$('#header').removeClass('header-scrolled');
     }
   });
 

@@ -31,35 +31,44 @@
 <body>
 	<div class="limiter">
 		<div class="container-login100" id = "intro">
-			<div id = "loginForm" class="wrap-login100 p-t-30 p-b-50">
+			<div id = "joinForm" class="wrap-join100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41 userFormHeader">
-					Account Login
+					join
 				</span>
-				<div class="login100-form p-b-33 p-t-5">
+				<form action = "insertUser" method = "POST" class="login100-form p-b-33 p-t-5">
 
-					<div class="wrap-input100 validate-input" >
-						<input id = "loginUsername" class="input100" type="text" name="username" placeholder="User name">
+					<div class="wrap-input100 validate-input">
+						<input id = "inputUserName" class="input100" type="text" name="username" placeholder="User name">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 					
+					<div class="wrap-input100 validate-input" style = "text-align : center; padding : 10px;" >
+						<button type = "button" id = "checkBt" class = "btn">중복확인</button>
+					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input id = "loginPassword" class="input100" type="password" name="password" placeholder="Password">
+						<input id = "inputPw" class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input id = "confirmPw" class="input100" type="password" placeholder="Confirm Password" data-toggle="popover-focus" title="password confirm" data-content = "비밀번호가 일치하지 않습니다">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" style = "text-align : center; padding : 10px; height : 59px;" >
+						<span id = "checkPw"></span>
 					</div>
 
 					<div class="container-login100-form-btn m-t-32">
-						<button id = "loginBt" class="btn">
-							Login
+						<button type = "button" id = "backBt" class="btn ml-4">
+							Back
 						</button>
-						<button id = "join" class="btn ml-4">
+						<button id = "submitJoinBt" class="btn ml-4" disabled>
 							Join
 						</button>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
-		
 	</div>
 	
 
@@ -80,7 +89,7 @@
 <!--===============================================================================================-->
 	<script src="../resources/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="../resources/js/login.js"></script>
+	<script src="../resources/js/join.js"></script>
 
 </body>
 </html>
