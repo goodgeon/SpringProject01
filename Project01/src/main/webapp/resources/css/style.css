@@ -8,12 +8,87 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+#movieList
+--------------------------------------------------------------*/
+
+#movieList {
+  background: url(../img/intro-bg.jpg) top center;
+  background-size: cover;
+  position : relative;
+  top : 250px;
+  padding: 60px 0;
+}
+
+#movieList .movie-title{
+	height : 48px;
+	vertical-align : middle;
+}
+
+#movieList .movie {
+  border: 1px solid;
+  margin-bottom: 30px;
+  height:357.75px;
+}
+
+#movieList .movie:hover .movie-img img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+#movieList .movie-img {
+  overflow: hidden;
+  margin-bottom: 15px;
+  height:263.5px;
+  line-height:263.5px;
+}
+
+#movieList .movie-img img {
+  transition: 0.3s ease-in-out;
+  width : 100%;
+}
+
+#movieList h3 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 5px;
+  padding: 0 20px;
+}
+
+#movieList a {
+  color: #f82249;
+}
+
+#movieList a:hover {
+  color: #f82249;
+}
+
+#movieList .stars {
+  padding: 0 20px;
+  margin-bottom: 5px;
+}
+
+#movieList .stars i {
+  color: #ffc31d;
+}
+
+#movieList p {
+  padding: 0 20px;
+  margin-bottom: 20px;
+  color: #060c22;
+  font-style: italic;
+  font-size: 15px;
+}
+/*----------------------------------------------------
+#movieList
+-----------------------------------------------------*/
 #movieList{
   width: 100%;
   height: 100vh;
   background: url(../img/intro-bg.jpg) top center;
   background-size: cover;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
   top:0;
 }
@@ -44,7 +119,7 @@
 #movieList:before{
   content: "";
   background: rgba(6, 12, 34, 0.8);
-  position: absolute;
+  position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
@@ -231,6 +306,7 @@ h6 {
   right: 0;
   transition: all 0.5s;
   z-index: 997;
+  background-color : black;
 }
 
 #header.header-scrolled,

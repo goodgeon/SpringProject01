@@ -36,7 +36,7 @@ public class UserController {
 		String username = user.getUsername();
 		UserVO u = userdao.getUser(username);
 		
-		if(u.getPassword().equals(user.getPassword())) {
+		if(u != null && u.getPassword().equals(user.getPassword())) {
 			session.setAttribute("loginUser", u);
 			return "success"; 
 		}

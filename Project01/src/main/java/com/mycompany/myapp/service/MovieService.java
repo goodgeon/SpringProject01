@@ -35,7 +35,7 @@ public class MovieService {
             throw new RuntimeException("검색어 인코딩 실패",e);
         }
 
-        String apiURL = "https://openapi.naver.com/v1/search/movie.json?query="+text+"&display=10";    // json 결과
+        String apiURL = "https://openapi.naver.com/v1/search/movie.json?query="+text+"&display=30&yearfrom=2000&yearto=2020";    // json 결과
 
         Map<String, String> requestHeaders = new HashMap<String,String>();
         requestHeaders.put("X-Naver-Client-Id", clientID);
