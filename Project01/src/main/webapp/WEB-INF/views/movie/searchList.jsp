@@ -57,7 +57,7 @@
           <li><a href="#about">전체 리뷰 목록</a></li>
           <li><a href="#speakers">내 리뷰 목록</a></li>
           <li><a href="#sponsors">개인정보수정</a></li>
-          <li><a href="user/logout">로그아웃</a></li>
+          <li><a href="/myapp/user/logout">로그아웃</a></li>
           <!-- <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li> -->
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -65,11 +65,35 @@
       
     </div>
   </header>
-  <section id="intro">
-    <div class="intro-container wow fadeInUp">
+  <section id="movieList">
+    <div class="movieList-container wow fadeInUp">
+    <div class = "row">
     	<c:forEach var="movie" items="${searchList.items}">
-    		<img src = "${movie.image}">
+          <div class="col-lg-3 col-md-6">
+            <div class="hotel">
+              <div class="hotel-img">
+                <img src="${movie.image}" class="img-fluid" width="175" height="250">
+              </div>
+              <div><a href="#">${movie.title}</a></div>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+          </div>
+          
+	    	<%-- <div class = "row">
+	    		<div class = "col-lg-2">
+	    			<div class = "hotel">
+	    				<div class = "hotel-img img-fluid"><img src = "${movie.image}"></div>
+	    			</div>
+	    		</div>
+	    	</div> --%>
     	</c:forEach>
+    	</div>
     </div>
   </section>
   

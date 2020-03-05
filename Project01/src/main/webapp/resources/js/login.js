@@ -17,7 +17,6 @@ $(document).ready(function(){
 			},
 			success : function(str){
 				if(str === "success"){
-					alert("success");
 					
 					location.href = "../"
 				}
