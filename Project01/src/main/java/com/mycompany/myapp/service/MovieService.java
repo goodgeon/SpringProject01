@@ -47,7 +47,6 @@ public class MovieService {
     }
     
     public String getMovie(String title) {
-    	System.out.println("service title : " + title);
     	String text = null;
         try {
             text = URLEncoder.encode(title, "UTF-8");
@@ -61,6 +60,8 @@ public class MovieService {
         requestHeaders.put("X-Naver-Client-Id", clientID);
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
         String responseBody = get(apiURL,requestHeaders);
+        
+        System.out.println("responseBody : " + responseBody);
 
         System.out.println(responseBody);
         return responseBody;

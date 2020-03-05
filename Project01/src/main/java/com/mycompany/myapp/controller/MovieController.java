@@ -1,5 +1,6 @@
 package com.mycompany.myapp.controller;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -49,6 +50,7 @@ public class MovieController {
 			e.printStackTrace();
 		}
 		JSONObject jsonObj = (JSONObject) obj;
+		
 		model.addAttribute("searchList", jsonObj);
 	
 		return "movie/searchList";
@@ -58,10 +60,10 @@ public class MovieController {
 	public String read(String title, Model model) {
 		String result = null;
 		title = title.replaceAll("<(/)?([a-zA-Z]*)(\\\\s[a-zA-Z]*=[^>]*)?(\\\\s)*(/)?>", "");
-		System.out.println("title : "+title);
 		
 		result = movieService.getMovie(title);
-		
+		result = result.replace("|", " ");
+		System.out.println("String result : " + result);
 		JSONParser parser = new JSONParser();
 		Object obj=null;
 		try {
@@ -70,6 +72,20 @@ public class MovieController {
 			e.printStackTrace();
 		}
 		JSONObject jsonObj = (JSONObject) obj;
+		
+		JSONArray jarr = (JSONArray)jsonObj.get("items");
+		JSONObject jtmp;
+		
+		for(int i=0; i<jarr.size(); i++) {
+			jtmp = (JSONObject)jarr.get(i);
+			String str = jtmp.get("title").toString().replaceAll("<(/)?([a-zA-Z]*)(\\\\s[a-zA-Z]*=[^>]*)?(\\\\s)*(/)?>", "");
+			
+			if(str.equals(title)) {
+				jsonObj = jtmp;
+				break;
+			}
+		}
+		System.out.println(jsonObj);
 		model.addAttribute("movie",jsonObj);
 		
 		return "movie/readMovie";

@@ -8,6 +8,27 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+#movieRead
+--------------------------------------------------------------*/
+
+#movieInfo{
+	color : #FFF;
+	background-color : #172842;
+	margin-left : 20px; 
+	border-radius : 15px;
+	height:180px
+}
+
+#readmovie-row{
+	margin-top : 90px;
+	justify-content : center;
+}
+
+#movieInfo img{
+	height : 158px;
+}
+
 
 /*--------------------------------------------------------------
 #movieList
@@ -68,7 +89,7 @@
 }
 
 #movieList a:hover {
-  color: #f82249;
+  color: #FFF;
 }
 
 #movieList .stars {
@@ -313,7 +334,7 @@ h6 {
   right: 0;
   transition: all 0.5s;
   z-index: 997;
-  background-color : black;
+  background-color : #172842;
 }
 
 #header.header-scrolled,
