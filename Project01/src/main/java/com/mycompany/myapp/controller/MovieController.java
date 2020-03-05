@@ -53,4 +53,24 @@ public class MovieController {
 	
 		return "movie/searchList";
 	}
+	
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	public String read(String title, Model model) {
+		String result = null;
+		System.out.println("title : "+title);
+		
+		result = movieService.getMovie(title);
+		
+		JSONParser parser = new JSONParser();
+		Object obj=null;
+		try {
+			obj = parser.parse( result );
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		JSONObject jsonObj = (JSONObject) obj;
+		model.addAttribute("movie",jsonObj);
+		
+		return "movie/readMovie";
+	}
 }

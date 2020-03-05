@@ -21,6 +21,14 @@
   padding: 60px 0;
 }
 
+.movie-col{
+	margin-bottom : 15px;
+}
+
+#movieList .row{
+	width : 100%;
+}
+
 #movieList .movie-title{
 	height : 48px;
 	vertical-align : middle;
@@ -29,7 +37,7 @@
 #movieList .movie {
   border: 1px solid;
   margin-bottom: 30px;
-  height:357.75px;
+  height:100%;
 }
 
 #movieList .movie:hover .movie-img img {
@@ -40,7 +48,7 @@
 #movieList .movie-img {
   overflow: hidden;
   margin-bottom: 15px;
-  height:263.5px;
+  height:78%;
   line-height:263.5px;
 }
 

@@ -67,14 +67,14 @@
   </header>
   <section id="movieList">
     <div class="movieList-container wow fadeInUp">
-    <div class = "row">
+    <div id= "movie-row" class = "row">
     	<c:forEach var="movie" items="${searchList.items}">
-          <div class="col-lg-2 col-md-6">
+          <div class="col-lg-2 col-md-6 movie-col">
             <div class="movie">
               <div class="movie-img">
                 <img src="${movie.image}" class="img-fluid">
               </div>
-              <div class = "movie-title"><a href="#">${movie.title}</a></div>
+              <div class = "movie-title"><a href="read?title=${movie.title}">${movie.title}</a></div>
               <div class="stars">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
