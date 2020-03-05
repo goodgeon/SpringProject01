@@ -47,6 +47,7 @@ public class MovieService {
     }
     
     public String getMovie(String title) {
+    	System.out.println("service title : " + title);
     	String text = null;
         try {
             text = URLEncoder.encode(title, "UTF-8");

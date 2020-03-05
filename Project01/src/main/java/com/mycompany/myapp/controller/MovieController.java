@@ -57,6 +57,7 @@ public class MovieController {
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String read(String title, Model model) {
 		String result = null;
+		title = title.replaceAll("<(/)?([a-zA-Z]*)(\\\\s[a-zA-Z]*=[^>]*)?(\\\\s)*(/)?>", "");
 		System.out.println("title : "+title);
 		
 		result = movieService.getMovie(title);
