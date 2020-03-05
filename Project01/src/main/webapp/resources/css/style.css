@@ -48,8 +48,7 @@
 #movieList .movie-img {
   overflow: hidden;
   margin-bottom: 15px;
-  height:78%;
-  line-height:263.5px;
+  height:72%;
 }
 
 #movieList .movie-img img {
