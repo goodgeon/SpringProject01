@@ -58,6 +58,7 @@ public class ReviewController {
 		
 		
 		model.addAttribute("myreview", rlist);
+		model.addAttribute("username", username);
 		
 		return "review/myreview";
 	}

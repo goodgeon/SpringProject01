@@ -1,23 +1,9 @@
 $(document).ready(function(){
 	
-	$('.delBt').on('click', function(){
-		var num = $(this).attr('data-num');
-		var username = $(this).attr('data-username');
-		
-		$.ajax({
-			url : 'deleteReview',
-			type : 'POST',
-			data : {
-				reviewNum : num
-			},
-			success : function(){
-				alert("삭제되었습니다");
-				getList(username);
-			}
-		})
-		
-		
-	})
+	var username = $('#readmovie-row').attr('data-username');
+	getList(username);
+
+	
 })
 
 function getList(username){
@@ -28,6 +14,7 @@ function getList(username){
 			username : username
 		},
 		success : function(res){
+			alert("succ");
 			if(res != ''){
     			var listHtml="";
         		$.each(res, function(key, item){
@@ -39,7 +26,26 @@ function getList(username){
         			listHtml += '<tr><th>작성자</th><td>'+item.username+'</td></tr><tr><th>내용</th><td>'+item.contents+'</td></tr><tr><th>날짜</th><td>'+item.inputdate+'</td></tr></table>;'
         		});
         		$('#readmovie-row').html(listHtml);
-        		console.log(listHtml);
+        		
+        		$('.delBt').on('click', function(){
+        			var num = $(this).attr('data-num');
+        			
+        			$.ajax({
+        				url : 'deleteReview',
+        				type : 'POST',
+        				data : {
+        					reviewNum : num
+        				},
+        				success : function(){
+        					alert("삭제되었습니다");
+        					getList(username);
+        				}
+        			})
+        		})
+    		}else{
+    			var listHtml="";
+    			listHtml += "<div style = 'color : #FFF; font-weight : bold; font-size : x-large;'>댓글이 없습니다</div>"
+    			$('#readmovie-row').html(listHtml);
     		}
 		}
 	})

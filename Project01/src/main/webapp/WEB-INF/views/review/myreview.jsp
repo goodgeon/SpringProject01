@@ -68,8 +68,9 @@
 
   <section id="movieList">
     <div class="movieList-container wow fadeInUp">
-   		<div id= "readmovie-row" class = "row">
- 				<c:forEach var = "review" items = "${myreview}">
+   		<div id= "readmovie-row" class = "row" data-username = "${username }">
+   				
+ 				<%-- <c:forEach var = "review" items = "${myreview}">
  				<table id = "movieInfo" class = "col-lg-7 myreview">
  					<tr id = "repForm" style = "height : 33%;">
  						<td rowspan="4"><a href = "/myapp/movie/read?title=${review.moviename}"><img src = "${review.movielink}"></a></td>
@@ -90,7 +91,7 @@
  						<td>${review.inputdate}</td>
  					</tr>
  				</table>		
- 				</c:forEach>
+ 				</c:forEach> --%>
     	</div>
     </div>
   </section>

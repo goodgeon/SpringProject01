@@ -60,7 +60,7 @@
       <nav id="nav-menu-container" style = "display : inline-block;">
         <ul class="nav-menu">
           <li class="menu-active"><a href="/myapp">Home</a></li>
-          <li><a href="#about">전체 리뷰 목록</a></li>
+          <li><a href="/myapp/review/allreview">전체 리뷰 목록</a></li>
           <li><a href="/myapp/review/myreview?username=${sessionScope.loginUser.username}">내 리뷰 목록</a></li>
           <li><a href="/myapp/user/updateInfo">개인정보수정</a></li>
           <li><a href="user/logout">로그아웃</a></li>
