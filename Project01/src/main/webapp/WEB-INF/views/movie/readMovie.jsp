@@ -54,9 +54,9 @@
       <nav id="nav-menu-container" style = "display : inline-block;">
         <ul class="nav-menu">
           <li class="menu-active"><a href="/myapp">Home</a></li>
-          <li><a href="#about">전체 리뷰 목록</a></li>
-          <li><a href="#speakers">내 리뷰 목록</a></li>
-          <li><a href="#sponsors">개인정보수정</a></li>
+          <li><a href="/myapp/review/allreview">전체 리뷰 목록</a></li>
+          <li><a href="/myapp/review/myreview?username=${sessionScope.loginUser.username}">내 리뷰 목록</a></li>
+          <li><a href="/myapp/user/updateInfo">개인정보수정</a></li>
           <li><a href="/myapp/user/logout">로그아웃</a></li>
           <!-- <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li> -->
         </ul>
@@ -86,7 +86,7 @@
  				</tr>
  				<tr>
  					<th>출연</th>
- 					<td>${movie.actor }</td>
+ 					<td id = "actorTd">${movie.actor }</td>
  				</tr>
  				<tr>
  					<th>링크</th>
@@ -97,20 +97,22 @@
  					<td>${movie.userRating}</td>
  				</tr>
  			</table>
- 			<table id = "reply" class = "col-lg-7" style = "margin-top : 30px;">
- 				<tr>
- 					<td>ID</td>
- 					<td><textarea></textarea></td>
- 					<td><button type = "button" class = "btn">Submit</button></td>
+ 			<table id = "repForm" class = "col-lg-7" style = "margin-top : 30px; height : 100px;">
+ 				<tr id  ="inputTr">
+ 						<td id = "usernameTd">${sessionScope.loginUser.username}</td>
+ 						<td id = "inputReplyTd"><textarea id = "inputReply"></textarea></td>
+ 						<td id = "submitTd"><button id="submitReplyBt" type = "button" class = "btn">Submit</button></td>
  				</tr>
- 				
+ 			</table>
+ 			<table id = "repList" class = "col-lg-7">
+ 				<tr><td>댓글이 없습니다.</td></tr>
  			</table>
     	</div>
-    	
     </div>
     
   </section>
-  
+  <input id="moviename" type = "hidden" value = "${movie.title }">
+  <input id = "movielink" type = "hidden" value ="${movie.image}">
   
   <!-- JavaScript Libraries -->
   <script src="../resources/lib/jquery/jquery.min.js"></script>
@@ -128,7 +130,7 @@
 
   <!-- Template Main Javascript File -->
   <script src="../resources/js/main.js"></script>
-  <script src="../resources/js/movie.js"></script>
+  <script src="../resources/js/readMovie.js"></script>
 
 </body>
 </html>

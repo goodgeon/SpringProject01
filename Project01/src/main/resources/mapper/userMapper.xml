@@ -25,4 +25,10 @@
 		)
 	</insert>
 	
+	<update id="updateInfo" parameterType="userVO">
+		update users
+		set password = #{password}
+		where username = #{username}
+	</update>
+	
 </mapper>

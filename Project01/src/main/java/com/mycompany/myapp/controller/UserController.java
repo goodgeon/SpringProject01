@@ -83,6 +83,20 @@ public class UserController {
 		return str;
 	}
 	
+	@RequestMapping(value = "/updateInfo", method = RequestMethod.GET)
+	public String updateInfo(UserVO user) {
+		
+		return "user/updateInfo";
+	}
+	
+	@RequestMapping(value = "/updateInfo", method = RequestMethod.POST)
+	public String updateInfo2(UserVO user) {
+		
+		userdao.updateInfo(user);
+		
+		return "redirect:/user/login";
+	}
+	
 	
 	
 }

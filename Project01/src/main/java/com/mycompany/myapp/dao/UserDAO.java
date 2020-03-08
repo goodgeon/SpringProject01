@@ -23,4 +23,10 @@ public class UserDAO {
 		user = mapper.getUser(username);
 		return user;
 	}
+
+	public void updateInfo(UserVO user) {
+		UserMapper mapper = session.getMapper(UserMapper.class);
+		
+		mapper.updateInfo(user);
+	}
 }

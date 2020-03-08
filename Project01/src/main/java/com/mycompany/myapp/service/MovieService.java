@@ -26,7 +26,6 @@ public class MovieService {
     private static String clientSecret = "QiWf2P8mvE";
 
     public String searchMovie(String keyword){
-    	System.out.println("Service : searchMovie");
 
         String text = null;
         try {
@@ -42,7 +41,6 @@ public class MovieService {
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
         String responseBody = get(apiURL,requestHeaders);
 
-        System.out.println(responseBody);
         return responseBody;
     }
     
@@ -61,9 +59,7 @@ public class MovieService {
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
         String responseBody = get(apiURL,requestHeaders);
         
-        System.out.println("responseBody : " + responseBody);
 
-        System.out.println(responseBody);
         return responseBody;
     	
     }

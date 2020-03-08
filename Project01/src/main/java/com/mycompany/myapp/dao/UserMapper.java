@@ -8,4 +8,6 @@ public interface UserMapper {
 
 	UserVO getUser(String username);
 
+	void updateInfo(UserVO user);
+
 }

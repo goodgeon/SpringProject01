@@ -27,7 +27,6 @@ public class MovieController {
 	@ResponseBody
 	@RequestMapping(value = "/getMovieList", method = RequestMethod.GET, produces="text/plain;charset=UTF-8")
 	public String getMovieList(String keyword) {
-		logger.info("Controller : getMovieList");
 		String result = null;
 		
 		result = movieService.searchMovie(keyword);
@@ -52,6 +51,7 @@ public class MovieController {
 		JSONObject jsonObj = (JSONObject) obj;
 		
 		model.addAttribute("searchList", jsonObj);
+		model.addAttribute("title", title);
 	
 		return "movie/searchList";
 	}
@@ -59,11 +59,12 @@ public class MovieController {
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String read(String title, Model model) {
 		String result = null;
+		System.out.println(title);
+		//title에서 html 태그 없애고 검색
 		title = title.replaceAll("<(/)?([a-zA-Z]*)(\\\\s[a-zA-Z]*=[^>]*)?(\\\\s)*(/)?>", "");
-		
 		result = movieService.getMovie(title);
-		result = result.replace("|", " ");
-		System.out.println("String result : " + result);
+		
+		result = result.replace("|", "  ");
 		JSONParser parser = new JSONParser();
 		Object obj=null;
 		try {
@@ -85,7 +86,7 @@ public class MovieController {
 				break;
 			}
 		}
-		System.out.println(jsonObj);
+		
 		model.addAttribute("movie",jsonObj);
 		
 		return "movie/readMovie";

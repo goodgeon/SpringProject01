@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mycompany.myapp.dao.ReviewMapper">
+	<insert id = "insertReview" parameterType="reviewVO">
+		insert into reviews
+		(reviewNum,username,moviename,contents,movielink)
+		values(
+		review_seq.nextval,
+		#{username},
+		#{moviename},
+		#{contents},
+		#{movielink}
+		)
+	</insert>
+	
+	<select id = "getList" parameterType = "String" resultType="reviewVO">
+		select *
+		from reviews
+		where moviename = #{moviename}
+		order by inputdate desc
+	</select>
+	
+	<select id = "getListByUsername" parameterType="String" resultType = "reviewVO">
+		select *
+		from reviews
+		where username = #{username}
+		order by inputdate desc
+	</select>
+	
+	<select id="getAllList" resultType = "reviewVO">
+		select *
+		from reviews
+		order by inputdate desc
+	</select>
+	
+	<delete id="deleteReview" parameterType="int">
+		delete from reviews
+		where reviewNum = #{reviewNum}
+	</delete>
+	
+</mapper>

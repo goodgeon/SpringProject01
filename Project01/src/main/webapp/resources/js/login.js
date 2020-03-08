@@ -19,6 +19,8 @@ $(document).ready(function(){
 				if(str === "success"){
 					
 					location.href = "../"
+				}else{
+					alert("회원정보가 일치하지 않습니다");
 				}
 			}
 		})

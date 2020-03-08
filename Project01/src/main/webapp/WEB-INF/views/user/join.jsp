@@ -30,7 +30,7 @@
 </head>
 <body>
 	<div class="limiter">
-		<div class="container-login100" id = "intro">
+		<div class="container-login100" id = "intro-login">
 			<div id = "joinForm" class="wrap-join100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41 userFormHeader">
 					join

@@ -53,9 +53,9 @@
 
       <nav id="nav-menu-container" style = "display : inline-block;">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="/myapp">Home</a></li>
+          <li><a href="/myapp">Home</a></li>
           <li><a href="/myapp/review/allreview">전체 리뷰 목록</a></li>
-          <li><a href="/myapp/review/myreview?username=${sessionScope.loginUser.username}">내 리뷰 목록</a></li>
+          <li class="menu-active"><a href="/myapp/review/myreview?username=${sessionScope.loginUser.username}">내 리뷰 목록</a></li>
           <li><a href="/myapp/user/updateInfo">개인정보수정</a></li>
           <li><a href="/myapp/user/logout">로그아웃</a></li>
           <!-- <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li> -->
@@ -65,43 +65,36 @@
       
     </div>
   </header>
+
   <section id="movieList">
     <div class="movieList-container wow fadeInUp">
-    <div id = "searchQuery">검색어 : '${title}'</div>
-    <div id= "movie-row" class = "row">
-    	<c:forEach var="movie" items="${searchList.items}">
-          <div class="col-lg-2 col-md-6 movie-col">
-            <div class="movie">
-              <div class="movie-img">
-              	<a href = "read?title=${movie.title}">
-	                <c:choose>
-		 					<c:when test="${movie.image == '' }"><img src = "../resources/img/noImage.png" class = 'img-fluid'></c:when>
-		 					<c:otherwise><img src = "${movie.image}"></c:otherwise>
-		 			</c:choose>
-	 			</a>
-              </div>
-              <div class = "movie-title"><a href="read?title=${movie.title}">${movie.title}</a></div>
-              <div class="stars">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </div>
-            </div>
-          </div>
-          
-	    	<%-- <div class = "row">
-	    		<div class = "col-lg-2">
-	    			<div class = "hotel">
-	    				<div class = "hotel-img img-fluid"><img src = "${movie.image}"></div>
-	    			</div>
-	    		</div>
-	    	</div> --%>
-    	</c:forEach>
+   		<div id= "readmovie-row" class = "row">
+ 				<c:forEach var = "review" items = "${myreview}">
+ 				<table id = "movieInfo" class = "col-lg-7 myreview">
+ 					<tr id = "repForm" style = "height : 33%;">
+ 						<td rowspan="4"><a href = "/myapp/movie/read?title=${review.moviename}"><img src = "${review.movielink}"></a></td>
+ 						<th>영화제목</th>
+ 						<td><a href = "/myapp/movie/read?title=${review.moviename}">${review.moviename }</a></td>
+ 						<td><button type = "button" class = "btn delBt" data-num="${review.reviewNum }" data-username = "${review.username}">삭제</button></td>
+ 					</tr>
+ 					<tr>
+ 						<th>작성자</th>
+ 						<td>${review.username}</td>
+ 					</tr>
+ 					<tr>
+ 						<th>내용</th>
+ 						<td>${review.contents}</td>
+ 					</tr>
+ 					<tr>
+ 						<th>날짜</th>
+ 						<td>${review.inputdate}</td>
+ 					</tr>
+ 				</table>		
+ 				</c:forEach>
     	</div>
     </div>
   </section>
+  
   
   <!-- JavaScript Libraries -->
   <script src="../resources/lib/jquery/jquery.min.js"></script>
@@ -119,7 +112,7 @@
 
   <!-- Template Main Javascript File -->
   <script src="../resources/js/main.js"></script>
-  <script src="../resources/js/movie.js"></script>
+  <script src="../resources/js/reviewList.js"></script>
 
 </body>
 </html>
